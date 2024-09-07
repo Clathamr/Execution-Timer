@@ -4,6 +4,7 @@
 #include <cstdlib>      //Standard C Library
 using namespace std;    //Simplify
 
+// This code takes user input as a string, writes it to a .py file and executes it, measuring the time at and after execution to estimate execution time.
 
 int main() {
 
@@ -11,7 +12,7 @@ int main() {
     ofstream pythonFile("temp_script.py");                  // Output File Stream (OFStream) for code to be written to .py file
 
 
-    //Code Read and write !!! Could also do this with for every line in input - might fix whitespace issue
+    //Code Read and write, Could also do this with 'for every line in input' - might fix whitespace issue
     
     cout << "Enter your Python code (end with an empty line):\n";
     while (getline(cin, line) && !line.empty()) {           // line assigned string of python code, check line isnt empty or break loop
@@ -39,14 +40,11 @@ end calculated after execution. Depends on delay between timechecks and running 
 
 Also need to rework to handle blank spaces, currently any blank line registers as a break for readwrite loop.
 
-Library seems to be able to handle most of Python, should check if it handles imports (it handles math sqrt) 
-and if there is a wayto put restrictions on it (could handle that in other places if this is able to deal with 
-whatever I throw at it)
+Must put restrictions on input, addressing security concerns.
 
 Also it runs into some problems with larget loops, seems to just cut off and then not display exec time.
 Either it finishes, calculated and runs out of terminal space to write to (unlikely) or the code cant handle larger loops as it
 
-After some research, i could also display the memory addresses of various things from the python code using a wrapper?
-I dont understand but worth investigating perhaps. 
+After some research, I could display the memory addresses of various things from the python code using a wrapper
 
-I could also use this to show the stack, again, not sure how yet. */
+I could also use this to show the stack. */
